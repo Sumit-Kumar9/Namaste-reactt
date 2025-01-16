@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "This is namaste-react with sumit",
   "scripts": {
+    "start": "parcel S1_index.html",
+    "build":"parcel build S1_index.html",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sumit-Kumar9/Namaste-reactt.git"
+    "url": "git+https://github.com /Sumit-Kumar9/Namaste-reactt.git"
   },
   "keywords": [],
   "author": "Sumit Kumar",
