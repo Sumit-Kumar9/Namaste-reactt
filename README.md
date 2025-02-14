@@ -21,4 +21,40 @@
 
 
 
-1:43 hr
+# Namaste Food
+
+/*
+*Header
+  - Logo
+  - Nav Items
+*Body
+  - Search
+  - RestaurantContaier
+     - RastaurantCard
+        -Img
+        -Name of Restaurant, Start Rating,delevry time
+*Footer
+  - Copyright
+  - Links
+  - Address
+  - Contact
+*/
+
+
+Two types of Export/Imports
+1.Default Export/Import
+
+export default Component;
+import Component from "path";
+
+
+2.Named Export Component
+
+export const Component;
+import {Component} from "path";
+
+
+# React Hooks
+(Normal JS utility function)
+- useState() - Superpowerfull State Variables in react
+- useEffect()
