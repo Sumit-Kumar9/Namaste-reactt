@@ -15,12 +15,18 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(
       // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.45970&lng=77.02820&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7046486&lng=76.71787259999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      //https://corsproxy.io/? - cors pulggin
     );
 
     const json = await data.json();
-    setListOfRestaurants(json?.data?.cards[0]?.card);
-    setFilteredRestaurant(json?.data?.cards[0]?.card);
+
+    setListOfRestaurants(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurant(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   //conditional rendering
@@ -48,7 +54,7 @@ const Body = () => {
               //searchText
 
               const filteredRestaurants = listOfRestaurants.filter((res) =>
-                res.data.name.toLowerCase().includes(searchText.toLowerCase())
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
               setFilteredRestaurant(filteredRestaurants);
             }}
@@ -63,7 +69,6 @@ const Body = () => {
               (res) => res.listOfRestaurants > 4
             );
             setListOfRestaurants(filterList);
-            console.log(filterList);
           }}
         >
           Top Rated Restaurants
@@ -71,8 +76,9 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((restaurant) => (
-          <RastaurantCard key={restaurant.id} resData={restaurant} />
+          <RastaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
+        <></>
       </div>
     </div>
   );

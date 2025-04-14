@@ -3,14 +3,15 @@ import { CDN_URL } from "../utils/constants";
 const RastaurantCard = ({ resData }) => {
   if (!resData) return null;
 
-  const { card } = resData;
-  const { info } = card.card;
+  // const { card } = resData;
+  const { info } = resData;
   const {
     name,
     cuisines,
     avgRating,
     costForTwo,
-    deliveryTime,
+    // deliveryTime,
+    sla,
     cloudinaryImageId,
   } = info;
   return (
@@ -23,8 +24,8 @@ const RastaurantCard = ({ resData }) => {
       <h3>{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRating} Stars</h4>
-      <h4>₹{costForTwo}300 for two</h4>
-      <h4>{deliveryTime} minutes</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{sla.deliveryTime} minutes</h4>
     </div>
   );
 };
